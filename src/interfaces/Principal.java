@@ -51,7 +51,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtRoute = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        cmdExit = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -183,9 +183,14 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 680, 100));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setText("jButton1");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 530, -1, -1));
+        cmdExit.setBackground(new java.awt.Color(204, 204, 204));
+        cmdExit.setText("Salir");
+        cmdExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdExitActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 530, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/black-minimalistic_00416715 (1).jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -325,7 +330,25 @@ public class Principal extends javax.swing.JFrame {
                     }
 
                     break;
-            }
+                    case 2: //Recorrido3-Route3
+                        break;
+                    case 3: // REcorrido4-Route4
+                        if(nf!=nc){
+                          Helper.mensaje(this, "Para poder hacer este recorrido el numero de filas y columnas deben ser iguales",2);   
+                        }else{
+                           txtRoute.setText(Helper.R4(tblTablaInicial)); 
+                        }
+                        
+                        break;
+                        case 4: // Recorrido5-Route5
+                            if(nc%2==0){
+                                Helper.mensaje(this,"Para poder hacer este recorrido el numero de columnas debe ser impar",2);
+                            }else{
+                        txtRoute.setText(Helper.R5(tblTablaInicial));
+                        }
+                        break;
+            
+        }
         }
 
     }//GEN-LAST:event_cmdOperacionActionPerformed
@@ -389,6 +412,20 @@ public class Principal extends javax.swing.JFrame {
         Helper.deshabilitarBotones(botonesD);
     }//GEN-LAST:event_cmdManualActionPerformed
 
+    private void cmdExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdExitActionPerformed
+        int sw,res;
+        sw=1;
+       res= JOptionPane.showConfirmDialog(this, "¿Seguro que desea salir?", "Salir", JOptionPane.YES_NO_OPTION);
+        if(res==0){
+            sw=1;
+            System.exit(0);
+        }else{
+            sw=0;
+        }
+       
+        
+    }//GEN-LAST:event_cmdExitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -428,10 +465,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbOperaciones;
     private javax.swing.JButton cmdAutomatic;
     private javax.swing.JButton cmdCrear;
+    private javax.swing.JButton cmdExit;
     private javax.swing.JButton cmdLimpiar;
     private javax.swing.JButton cmdManual;
     private javax.swing.JButton cmdOperacion;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
