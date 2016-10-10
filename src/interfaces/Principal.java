@@ -21,7 +21,17 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        
+        JButton botonesD[] = {cmdManual, cmdAutomatic, cmdOperacion};
+        JButton botonesH[] = {cmdCrear, cmdLimpiar};
+        
+
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
+
     }
+    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
