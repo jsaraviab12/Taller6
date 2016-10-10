@@ -49,7 +49,8 @@ public class Principal extends javax.swing.JFrame {
         cmdManual = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        txtRoute = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtRoute = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
@@ -169,11 +170,18 @@ public class Principal extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(51, 153, 255))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtRoute.setBackground(new java.awt.Color(0, 0, 0));
-        txtRoute.setForeground(new java.awt.Color(51, 153, 255));
-        jPanel4.add(txtRoute, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 660, 30));
+        jScrollPane1.setForeground(new java.awt.Color(0, 153, 255));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 680, 60));
+        txtRoute.setEditable(false);
+        txtRoute.setBackground(new java.awt.Color(0, 0, 0));
+        txtRoute.setColumns(20);
+        txtRoute.setForeground(new java.awt.Color(51, 153, 255));
+        txtRoute.setRows(5);
+        jScrollPane1.setViewportView(txtRoute);
+
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 650, 60));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 680, 100));
 
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setText("jButton1");
@@ -245,12 +253,9 @@ public class Principal extends javax.swing.JFrame {
                 txtNcolumnas1.requestFocusInWindow();
             } else {
                 tm = (DefaultTableModel) tblTablaInicial.getModel();
-               
 
                 tm.setRowCount(nf);
                 tm.setColumnCount(nc);
-
-                
 
                 JButton botonesH[] = {cmdManual, cmdAutomatic, cmdLimpiar};
                 JButton botonesD[] = {cmdCrear, cmdOperacion};
@@ -271,7 +276,6 @@ public class Principal extends javax.swing.JFrame {
         cmbOperaciones.setSelectedIndex(0);
 
         Helper.porDefectoTabla(tblTablaInicial);
-        
 
         JButton botonesH[] = {cmdCrear, cmdLimpiar};
         JButton botonesD[] = {cmdManual, cmdAutomatic, cmdOperacion};
@@ -285,7 +289,6 @@ public class Principal extends javax.swing.JFrame {
     private void cmdOperacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdOperacionActionPerformed
         int op, nf, nc;
         op = cmbOperaciones.getSelectedIndex();
-        
 
         nf = tblTablaInicial.getRowCount();
         nc = tblTablaInicial.getColumnCount();
@@ -301,11 +304,30 @@ public class Principal extends javax.swing.JFrame {
             switch (op) {
 
                 case 0://Recorrido1-Route1
-                    txtRoute.setText(Helper.R1(tblTablaInicial));
+                    if (nf % 2 == 0 || nc % 2 == 0) {
+                        Helper.mensaje(this, "Para poder hacer este recorrido el numero de filas y columnas deben ser impares", 2);
+                    } else if (nc != nf) {
+                        Helper.mensaje(this, "Para poder hacer este recorrido el numero de filas y columnas deben ser iguales",2);
+
+                    } else {
+                        txtRoute.setText(Helper.R1(tblTablaInicial));
+                    }
+
+                    break;
+                    case 1://Recorrido2-Route2
+                    if (nf % 2 == 0 || nc % 2 == 0) {
+                        Helper.mensaje(this, "Para poder hacer este recorrido el numero de filas y columnas deben ser impares", 2);
+                    } else if (nc != nf) {
+                        Helper.mensaje(this, "Para poder hacer este recorrido el numero de filas y columnas deben ser iguales",2);
+
+                    } else {
+                        txtRoute.setText(Helper.R2(tblTablaInicial));
+                    }
+
                     break;
             }
         }
-        
+
     }//GEN-LAST:event_cmdOperacionActionPerformed
 
     private void cmdAutomaticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAutomaticActionPerformed
@@ -352,7 +374,7 @@ public class Principal extends javax.swing.JFrame {
                             j = nc;
 
                             Helper.porDefectoTabla(tblTablaInicial);
-                            
+
                         } else {
                             sw = 0;
                         }
@@ -418,10 +440,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblTablaInicial;
     private javax.swing.JTextField txtNcolumnas1;
     private javax.swing.JTextField txtNfilas1;
-    private javax.swing.JTextField txtRoute;
+    private javax.swing.JTextArea txtRoute;
     // End of variables declaration//GEN-END:variables
 }
