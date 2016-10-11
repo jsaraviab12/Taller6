@@ -318,4 +318,17 @@ public class Helper {
         
         return aux;
     }
+    public static String R3(JTable tabla) {
+    int m[][] = pasoDeDatos(tabla);
+        int nf = m.length;
+        int nc = m[0].length;
+        String aux = "";
+        
+        while(){
+        for (int i = 1; i < m.length; i++) {
+            aux = aux + Helper.recorridoHaciaDerecha(m, nf / 2, nc / 2, nc / 2 + i);
+        }
+        
+        }
+    }
 }

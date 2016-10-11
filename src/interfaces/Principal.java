@@ -289,6 +289,7 @@ public class Principal extends javax.swing.JFrame {
         txtNcolumnas1.setText("");
         txtNfilas1.requestFocusInWindow();
         cmbOperaciones.setSelectedIndex(0);
+        txtRoute.setText("");
 
         Helper.porDefectoTabla(tblTablaInicial);
 
@@ -341,6 +342,8 @@ public class Principal extends javax.swing.JFrame {
 
                     break;
                     case 2: //Recorrido3-Route3
+                        
+                        txtRoute.setText(Helper.R3(tblTablaInicial)); 
                         break;
                     case 3: // REcorrido4-Route4
                         if(nf!=nc){
