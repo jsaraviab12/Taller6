@@ -50,7 +50,7 @@ public class Principal extends javax.swing.JFrame {
         txtNcolumns = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblTable1 = new javax.swing.JTable();
-        cmbOperations = new javax.swing.JComboBox<>();
+        cmbOperations = new javax.swing.JComboBox<String>();
         jPanel2 = new javax.swing.JPanel();
         cmdCreate = new javax.swing.JButton();
         cmdClean = new javax.swing.JButton();
@@ -69,7 +69,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos iniciales ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(51, 153, 255))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos iniciales ", 0, 0, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(51, 153, 255))); // NOI18N
         jPanel3.setForeground(new java.awt.Color(51, 153, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -108,17 +108,18 @@ public class Principal extends javax.swing.JFrame {
             }
         ));
         tblTable1.setCellSelectionEnabled(true);
+        tblTable1.setEnabled(false);
         jScrollPane2.setViewportView(tblTable1);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 410, 190));
 
         cmbOperations.setBackground(new java.awt.Color(51, 51, 51));
         cmbOperations.setForeground(new java.awt.Color(51, 153, 255));
-        cmbOperations.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Recorrido 1", "Recorrido 2", "Recorrido 3", "Recorrido 4", "Recorrido 5" }));
+        cmbOperations.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Recorrido 1", "Recorrido 2", "Recorrido 3", "Recorrido 4", "Recorrido 5" }));
         jPanel1.add(cmbOperations, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 160, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 255, 255))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", 0, 0, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 255, 255))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmdCreate.setBackground(new java.awt.Color(204, 204, 204));
@@ -177,7 +178,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(51, 153, 255))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", 0, 0, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(51, 153, 255))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane1.setForeground(new java.awt.Color(0, 153, 255));
@@ -343,7 +344,7 @@ public class Principal extends javax.swing.JFrame {
                     break;
                     case 2: //Recorrido3-Route3
                         
-                        txtRoute.setText(Helper.R3(tblTable1)); 
+                        Helper.mensaje(this, "Este recorrido no esta disponible por ahora, estamos trabajando para su pronta normalización",2);
                         break;
                     case 3: // REcorrido4-Route4
                         if(nf!=nc){
